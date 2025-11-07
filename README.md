@@ -48,9 +48,9 @@ Aquí las pruebas:
 
 <img width="1098" height="144" alt="image" src="https://github.com/user-attachments/assets/cbb25f1b-92f4-41c8-8961-527a4b230782" />\
 \
-
-Cabe recalcar que también se intentó desplegar con Docker pero el resultado es el mismo.
 En esta imagen, el error NameError: name 'HTM_Cls' is not defined ocurre porque el archivo principal (Environment.py) intenta usar la clase HTM_Cls, la cual debería ser importada desde el módulo RoLE.
 Sin embargo, el entorno no reconoce ni puede importar dicho módulo, por lo que la clase no se define y el programa no se va a ejecutar, no se si el autor modificó los códigos pero intenté de todas las maneras y no pude desplegar el "Enviroment E1".
+
+Cabe recalcar que también se intentó desplegar con Docker pero el resultado es el mismo.
 
 
