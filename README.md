@@ -95,4 +95,10 @@ docker run -it --rm pybullet-gym
 ```
 Pero el resultado fue el mismo...
 
+<img width="1109" height="200" alt="image" src="https://github.com/user-attachments/assets/98b882d8-2189-4be8-a988-f9cf768e2bb4" />
+<img width="1111" height="121" alt="image" src="https://github.com/user-attachments/assets/5e68a214-6878-4155-943c-0884c4301889" />
+<img width="937" height="192" alt="image" src="https://github.com/user-attachments/assets/1bdcd7d1-3b64-4b7a-9e15-3ad26b195256" />
+
+
+
 
