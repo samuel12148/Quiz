@@ -5,6 +5,10 @@ Para desplegar lo que se pide primero se descarga el proyecto desde GitHub con e
 ```
 git clone https://github.com/rparak/PyBullet_Industrial_Robotics_Gym.git
 ```
+Y se entra a la carpeta con:
+```
+cd PyBullet_Industrial_Robotics_Gym
+```
 Luego se crea un entorno virtual en Conda ya que el autor lo recomienda para el proyecto:
 ```
 conda create -n pybullet_env python=3.10
@@ -52,5 +56,43 @@ En esta imagen, el error NameError: name 'HTM_Cls' is not defined ocurre porque 
 Sin embargo, el entorno no reconoce ni puede importar dicho módulo, por lo que la clase no se define y el programa no se va a ejecutar, no se si el autor modificó los códigos pero intenté de todas las maneras y no pude desplegar el "Enviroment E1".
 
 Cabe recalcar que también se intentó desplegar con Docker pero el resultado es el mismo.
+Para Docker al proceso se le agrega que se crea un archivo Dockerfile con
+```
+nano Dockerfile
+```
+Y se pega lo siguiente:
+```
+# Imagen base con Python 3.10
+FROM python:3.10-slim
+
+# Instalar dependencias del sistema (por si el proyecto usa PyBullet con renderizado)
+RUN apt-get update && apt-get install -y \
+    git \
+    python3-tk \
+    xvfb \
+    && rm -rf /var/lib/apt/lists/*
+
+# Crear el directorio de trabajo
+WORKDIR /app
+
+# Copiar todo el código al contenedor
+COPY . /app
+
+# Instalar dependencias del proyecto
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt || true
+
+# Comando por defecto (ajústalo según lo que quieras ejecutar)
+CMD ["python", "src/PyBullet/Configuration/Environment.py"]
+```
+Luego, se construye la imagen Docker:
+```
+docker build -t pybullet-gym .
+```
+Y se ejecuta el contenedor:
+```
+docker run -it --rm pybullet-gym
+```
+Pero el resultado fue el mismo...
 
 
