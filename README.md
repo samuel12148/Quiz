@@ -65,7 +65,7 @@ Y se pega lo siguiente:
 # Imagen base con Python 3.10
 FROM python:3.10-slim
 
-# Instalar dependencias del sistema (por si el proyecto usa PyBullet con renderizado)
+# Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
     git \
     python3-tk \
@@ -82,7 +82,7 @@ COPY . /app
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt || true
 
-# Comando por defecto (ajústalo según lo que quieras ejecutar)
+# Comando por defecto
 CMD ["python", "src/PyBullet/Configuration/Environment.py"]
 ```
 Luego, se construye la imagen Docker:
